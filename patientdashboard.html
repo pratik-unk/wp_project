@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MindWell Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#f8fafc;
+display:flex;
+}
+
+/* Sidebar */
+
+.sidebar{
+width:250px;
+background:white;
+height:100vh;
+padding:30px 20px;
+border-right:1px solid #eee;
+
+display:flex;
+flex-direction:column;
+}
+
+.logo{
+font-size:20px;
+font-weight:600;
+color:#16a34a;
+margin-bottom:35px;
+}
+
+.menu{
+flex:1;
+}
+
+.menu-item{
+display:flex;
+align-items:center;
+padding:12px 14px;
+margin-bottom:8px;
+border-radius:10px;
+cursor:pointer;
+color:#555;
+transition:0.2s;
+}
+
+.menu-item:hover{
+background:#f1f5f9;
+}
+
+.menu-item.active{
+background:#16a34a;
+color:white;
+}
+
+/* Logout */
+
+.logout{
+margin-top:auto;
+padding:12px 14px;
+border-radius:10px;
+cursor:pointer;
+color:#64748b;
+font-weight:500;
+display:flex;
+align-items:center;
+gap:10px;
+transition:0.2s;
+}
+
+.logout:hover{
+background:#f1f5f9;
+}
+
+.logout-icon{
+width:18px;
+height:18px;
+opacity:0.8;
+}
+
+/* Main Layout */
+
+.main{
+flex:1;
+padding:35px;
+}
+
+/* Banner */
+
+.banner{
+background:linear-gradient(135deg,#22c55e,#16a34a);
+color:white;
+padding:35px;
+border-radius:18px;
+margin-bottom:25px;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+.banner h1{
+margin-top:8px;
+font-size:30px;
+}
+
+.banner p{
+margin-top:10px;
+opacity:0.9;
+}
+
+/* Grid */
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:22px;
+}
+
+/* Card */
+
+.card{
+background:white;
+border-radius:16px;
+padding:22px;
+box-shadow:0 6px 20px rgba(0,0,0,0.05);
+transition:0.2s;
+}
+
+.card:hover{
+transform:translateY(-3px);
+}
+
+/* Session */
+
+.session{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#f8fafc;
+padding:12px;
+border-radius:12px;
+margin-top:12px;
+}
+
+.session-left{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.avatar{
+width:42px;
+height:42px;
+border-radius:50%;
+background:#dcfce7;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:600;
+color:#16a34a;
+}
+
+.join-btn{
+background:#16a34a;
+border:none;
+color:white;
+padding:8px 15px;
+border-radius:8px;
+cursor:pointer;
+font-size:14px;
+}
+
+.join-btn:hover{
+background:#15803d;
+}
+
+/* Mood */
+
+.moods{
+display:flex;
+justify-content:space-between;
+margin-top:20px;
+}
+
+.mood{
+text-align:center;
+cursor:pointer;
+padding:8px;
+border-radius:10px;
+transition:0.2s;
+}
+
+.mood:hover{
+background:#f1f5f9;
+}
+
+.mood span{
+font-size:26px;
+display:block;
+}
+
+/* Actions */
+
+.card-title{
+font-size:20px;
+margin-bottom:18px;
+}
+
+.quick-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+}
+
+.quick-card{
+padding:22px;
+border-radius:18px;
+cursor:pointer;
+transition:0.25s;
+}
+
+.quick-card img{
+width:28px;
+margin-bottom:10px;
+opacity:0.7;
+}
+
+.quick-card h4{
+font-size:16px;
+margin-bottom:5px;
+}
+
+.quick-card p{
+font-size:13px;
+color:#64748b;
+}
+
+.quick-card:hover{
+transform:translateY(-3px);
+box-shadow:0 8px 18px rgba(0,0,0,0.08);
+}
+
+/* Card Colors */
+
+.chat{
+background:#e8f0f4;
+}
+
+.helpline{
+background:#f3efe7;
+}
+
+.tools{
+background:#efeaf1;
+}
+
+.groups{
+background:#e9efeb;
+}
+
+
+/* Progress */
+
+.progress{
+margin: 14px;
+}
+
+.progress-top{
+display:flex;
+justify-content:space-between;
+font-size:14px;
+margin-bottom:5px;
+}
+
+.progress-bar{
+height:8px;
+background:#e5e7eb;
+border-radius:10px;
+overflow:hidden;
+}
+
+.progress-fill{
+height:100%;
+background:#22c55e;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.sidebar{
+display:none;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.main{
+padding:20px;
+}
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<div class="menu">
+
+<div class="logo">❤ MindWell</div>
+
+<div class="menu-item active">Dashboard</div>
+<div class="menu-item">Sessions</div>
+<div class="menu-item">Messages</div>
+<div class="menu-item">Resources</div>
+<div class="menu-item">Wellness</div>
+<div class="menu-item">Settings</div>
+
+</div>
+
+<div class="logout">
+<img src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png" class="logout-icon">
+<span>Log Out</span>
+</div>
+
+</div>
+
+
+<!-- Main -->
+
+<div class="main">
+
+<div class="banner">
+
+<div>Good morning ☀</div>
+
+<h1>Welcome back, Pratik Singh</h1>
+
+<p>
+Remember — every step you take towards your mental health matters.
+You're doing great!
+</p>
+
+</div>
+
+
+<div class="grid">
+
+<!-- Upcoming Sessions -->
+
+<div class="card">
+
+<h3>Upcoming Sessions</h3>
+
+<div class="session">
+
+<div class="session-left">
+
+<div class="avatar">EC</div>
+
+<div>
+<b>Dr. Emily Chen</b><br>
+<small style="color:#777">Today • 3:00 PM</small>
+</div>
+
+</div>
+
+<button class="join-btn">Join</button>
+
+</div>
+
+
+<div class="session">
+
+<div class="session-left">
+
+<div class="avatar">ML</div>
+
+<div>
+<b>Dr. Marcus Lee</b><br>
+<small style="color:#777">Mar 15 • 10:00 AM</small>
+</div>
+
+</div>
+
+<button class="join-btn">Join</button>
+
+</div>
+
+</div>
+
+
+<!-- Mood -->
+
+<div class="card">
+
+<h3>How are you feeling?</h3>
+<p style="color:#64748b;font-size:14px">
+Track your mood to see patterns over time
+</p>
+
+<div class="moods">
+
+<div class="mood"><span>😊</span>Great</div>
+<div class="mood"><span>🙂</span>Good</div>
+<div class="mood"><span>😐</span>Okay</div>
+<div class="mood"><span>😔</span>Low</div>
+<div class="mood"><span>😢</span>Sad</div>
+
+</div>
+
+</div>
+
+
+<!-- Quick Actions -->
+
+<div class="card">
+
+<h3 class="card-title">Quick Actions</h3>
+
+<div class="quick-grid">
+
+<div class="quick-card chat">
+<img src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png">
+<h4>Chat with Therapist</h4>
+<p>Start a text session</p>
+</div>
+
+<div class="quick-card helpline">
+<img src="https://cdn-icons-png.flaticon.com/512/597/597177.png">
+<h4>Crisis Helpline</h4>
+<p>24/7 support available</p>
+</div>
+
+<div class="quick-card tools">
+<img src="https://cdn-icons-png.flaticon.com/512/2991/2991108.png">
+<h4>Self-Help Tools</h4>
+<p>Exercises & journals</p>
+</div>
+
+<div class="quick-card groups">
+<img src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png">
+<h4>Support Groups</h4>
+<p>Join a community</p>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Weekly Wellness Goals -->
+
+<div class="card">
+
+<h3>Weekly Wellness Goals</h3>
+
+<div class="progress">
+
+<div class="progress-top">
+<span>Mindfulness</span>
+<span>75%</span>
+</div>
+
+<div class="progress-bar">
+<div class="progress-fill" style="width:75%"></div>
+</div>
+
+</div>
+
+<div class="progress">
+
+<div class="progress-top">
+<span>Journal Entries</span>
+<span>60%</span>
+</div>
+
+<div class="progress-bar">
+<div class="progress-fill" style="width:60%"></div>
+</div>
+
+</div>
+
+<div class="progress">
+
+<div class="progress-top">
+<span>Breathing Exercises</span>
+<span>40%</span>
+</div>
+
+<div class="progress-bar">
+<div class="progress-fill" style="width:40%"></div>
+</div>
+
+</div>
+
+</div>
+
+
+
+</div> 
+
+</div>
+
+</body>
+</html>
