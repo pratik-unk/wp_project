@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MindWell Sign Up</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#22c55e,#16a34a);
+}
+
+/* Card */
+
+.signup-container{
+background:white;
+padding:40px;
+width:380px;
+border-radius:18px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+text-align:center;
+}
+
+/* Logo */
+
+.logo{
+font-size:22px;
+font-weight:600;
+color:#16a34a;
+margin-bottom:20px;
+}
+
+/* Title */
+
+h2{
+margin-bottom:20px;
+color:#333;
+}
+
+/* Inputs */
+
+.input-group{
+text-align:left;
+margin-bottom:15px;
+position:relative;
+}
+
+.input-group label{
+font-size:14px;
+color:#555;
+display:block;
+margin-bottom:6px;
+}
+
+.input-group input{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #ddd;
+font-size:14px;
+}
+
+.input-group input:focus{
+outline:none;
+border-color:#22c55e;
+}
+
+/* Eye icon */
+
+.toggle-password{
+position:absolute;
+right:10px;
+top:38px;
+cursor:pointer;
+font-size:14px;
+color:#777;
+}
+
+/* Button */
+
+.signup-btn{
+width:100%;
+padding:12px;
+background:#16a34a;
+border:none;
+border-radius:8px;
+color:white;
+font-size:15px;
+cursor:pointer;
+margin-top:10px;
+transition:0.2s;
+}
+
+.signup-btn:hover{
+background:#15803d;
+}
+
+/* Link */
+
+.login-link{
+margin-top:15px;
+display:inline-block;
+color:#16a34a;
+text-decoration:none;
+font-size:14px;
+}
+
+.login-link:hover{
+text-decoration:underline;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="signup-container">
+
+<div class="logo">❤ MindWell</div>
+
+<h2>Create Account</h2>
+
+<form>
+
+<div class="input-group">
+<label>Full Name</label>
+<input type="text" placeholder="Enter your name" required>
+</div>
+
+<div class="input-group">
+<label>Email</label>
+<input type="email" placeholder="Enter your email" required>
+</div>
+
+<div class="input-group">
+<label>Password</label>
+<input id="password" type="password" placeholder="Enter password" required>
+<span class="toggle-password" onclick="togglePassword()">👁</span>
+</div>
+
+<div class="input-group">
+<label>Confirm Password</label>
+<input id="confirmPassword" type="password" placeholder="Confirm password" required>
+</div>
+
+<button class="signup-btn">Sign Up</button>
+
+</form>
+
+<a href="patientlogin.html" class="login-link">Already have an account? Login</a>
+
+</div>
+
+<script>
+
+function togglePassword(){
+
+const password = document.getElementById("password");
+
+if(password.type === "password"){
+password.type = "text";
+}else{
+password.type = "password";
+}
+
+}
+
+</script>
+
+</body>
+</html>

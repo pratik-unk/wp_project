@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MindWell</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#22c55e,#16a34a);
+}
+
+.container{
+background:white;
+padding:45px;
+border-radius:18px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+text-align:center;
+width:420px;
+}
+
+.logo{
+font-size:24px;
+font-weight:600;
+color:#16a34a;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#666;
+margin-bottom:30px;
+}
+
+.options{
+display:flex;
+gap:20px;
+justify-content:center;
+}
+
+.card{
+flex:1;
+padding:25px;
+border-radius:14px;
+border:1px solid #eee;
+cursor:pointer;
+transition:0.25s;
+text-decoration:none;
+color:black;
+}
+
+.card:hover{
+transform:translateY(-4px);
+box-shadow:5px 8px 20px black;
+}
+
+.card img{
+width:50px;
+margin-bottom:10px;
+}
+
+.card h3{
+font-size:18px;
+margin-bottom:5px;
+}
+
+.card p{
+font-size:13px;
+color:#64748b;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">❤ MindWell</div>
+<p class="subtitle">Welcome! Choose how you want to continue</p>
+
+<div class="options">
+
+<a href="patient/patientlogin.html" class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
+<h3>Patient</h3>
+<p>Access therapy and wellness tools</p>
+</a>
+
+<a href="doctor/docotorlogin.html" class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png">
+<h3>Doctor</h3>
+<p>Manage appointments and patients</p>
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
